@@ -12,7 +12,7 @@ function App() {
       {/* Header / Navbar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div className="container">
-          <a className="navbar-brand fw-bold" href="#" style={{ color: '#4096f3' }}>
+          <a className="navbar-brand fw-bold" href="/" style={{ color: '#4096f3' }}>
             SHREE BAJRANG STAINLESS STEEL
           </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
