@@ -57,9 +57,11 @@ const servicesList = [
     description: 'Custom fabrication and specialized steel work.',
     carouselId: 'carouselOthers',
     images: [
-      '/images/others/oimg1.jpeg',
       '/images/others/oimg2.jpeg',
       '/images/others/oimg3.jpeg',
+      '/images/others/oimg4.jpeg',
+      '/images/others/oimg9.jpeg',
+      '/images/others/oimg10.jpeg',
     ],
   },
   {
@@ -82,10 +84,14 @@ function Home() {
   return (
     <>
       {/* Hero Section */}
-      <header className="bg-secondary text-white text-center py-5" style={{ backgroundImage: 'url("workers-at-work.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '400px' }}>
-        <div className="container py-5" style={{ backgroundColor: 'rgba(0,0,0,0.6)', borderRadius: '10px' }}>
-          <h1 className="display-4 fw-bold">Precision in Every Weld</h1>
-          <p className="lead">Expert Steel Fabrication and Industrial Solutions</p>
+      <header className="text-white text-center" style={{ backgroundImage: 'url("/images/img2.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', minHeight: '700px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+        {/* Dark Overlay */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}></div>
+        
+        {/* Content */}
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+          <h1 className="display-3 fw-bold mb-3" style={{ fontSize: '4.5rem', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>Precision in Every Weld</h1>
+          <p className="lead" style={{ fontSize: '1.8rem', textShadow: '2px 2px 6px rgba(0,0,0,0.7)', marginBottom: 0 }}>Expert Steel Fabrication and Industrial Solutions</p>
         </div>
       </header>
 
@@ -105,13 +111,13 @@ function Home() {
             </p>
             <div className="mt-4">
               <div className="mb-2" style={{fontSize: '1rem'}}>
-                <span className="badge bg-primary me-2">Quality Assured</span>
-                <span className="badge bg-success">ISO Certified</span>
+                {/* <span className="badge bg-primary me-2">Quality Assured</span>
+                <span className="badge bg-success">ISO Certified</span> */}
               </div>
             </div>
           </div>
           <div className="col-md-6">
-            <img src="workshop-team.jpg" className="img-fluid rounded shadow" alt="Our Workers Team" style={{height: '450px', objectFit: 'cover'}} />
+            <img src="/images/img1.jpeg" className="img-fluid rounded shadow" alt="Our Workers Team" style={{height: '450px', objectFit: 'cover'}} />
           </div>
         </div>
       </section>
@@ -123,7 +129,7 @@ function Home() {
           <div className="row">
             {servicesList.map((service) => (
               <div key={service.id} className="col-md-4 mb-4">
-                <div className="card h-100 border-0 shadow-sm">
+                <div className="card h-100 border-0 shadow-sm transition" style={{transition: 'all 0.3s ease', cursor: 'pointer'}} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0.125rem 0.25rem rgba(0,0,0,0.075)'}>
                   {service.images.length > 1 ? (
                     <div id={service.carouselId} className="carousel slide" data-bs-ride="carousel">
                       <div className="carousel-inner rounded-top">
@@ -156,9 +162,9 @@ function Home() {
                     />
                   )}
                   <div className="card-body d-flex flex-column">
-                    <h5 className="fw-bold">{service.title}</h5>
-                    <p className="text-muted small flex-grow-1">{service.description}</p>
-                    <Link to={`/service/${service.id}`} className="btn btn-primary btn-sm align-self-start">
+                    <h5 className="fw-bold mb-2" style={{color: '#333'}}>{service.title}</h5>
+                    <p className="text-muted small flex-grow-1" style={{lineHeight: '1.6'}}>{service.description}</p>
+                    <Link to={`/service/${service.id}`} className="btn btn-primary btn-sm align-self-start" style={{borderRadius: '25px', paddingLeft: '20px', paddingRight: '20px', fontWeight: '500', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#0056b3'; e.target.style.transform = 'translateX(5px)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = ''; e.target.style.transform = '';}}>
                       View Details →
                     </Link>
                   </div>
@@ -170,7 +176,7 @@ function Home() {
       </section>
 
       {/* Career Section */}
-      <section id="career" className="py-5 container">
+      {/* <section id="career" className="py-5 container">
         <div className="card bg-dark text-white p-5 border-0 rounded-3 shadow">
           <div className="row align-items-center">
             <div className="col-md-8">
@@ -182,7 +188,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Image Modal */}
       {selectedImage && (
